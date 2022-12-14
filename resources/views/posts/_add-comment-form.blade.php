@@ -9,7 +9,7 @@
                          width="40"
                          height="40"
                          class="rounded-full"/>
-                    <h2 class="ml-4">Want</h2>
+                    <h2 class="ml-4">{{auth()->user()->username}}</h2>
                 </header>
 
                 <div class="mt-6">
