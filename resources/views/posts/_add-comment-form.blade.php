@@ -26,9 +26,9 @@
                 </div>
 
                 <div class="flex justify-end mt-6 pt-6 border-t border-gray-200">
-                    <x-submit-buttom>
+                    <x-submit-button>
                         Post
-                    </x-submit-buttom>
+                    </x-submit-button>
                 </div>
 
             </form>
