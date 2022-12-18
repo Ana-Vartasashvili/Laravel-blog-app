@@ -8,7 +8,7 @@
 
 <style>
     html {
-        scroll-behavior: smooth ;
+        scroll-behavior: smooth;
     }
 </style>
 
@@ -23,11 +23,21 @@
 
         <div class="mt-8 md:mt-0 flex items-center">
             @auth
-                <form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
-                    @csrf
 
-                    <button type="submit">Log Out</button>
-                </form>
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <buttoon class="text-xs font-bold uppercase">Welcome, {{auth()->user()->name}}</buttoon>
+                    </x-slot>
+
+                    <x-dropdown-item href="admin/posts/create" :active="request()->is('admin/posts/create')" >New Post</x-dropdown-item>
+                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" >Log Out</x-dropdown-item>
+
+                    <form id="logout-form" method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
+                        @csrf
+                    </form>
+                </x-dropdown>
+
+
             @else
                 <a href="/register" class="text-xs font-bold uppercase">Register</a>
                 <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
@@ -67,7 +77,7 @@
                                    class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none"/>
 
                             @error('email')
-                                <span class="text-xs text-red-500">{{$message}}</span>
+                            <span class="text-xs text-red-500">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
