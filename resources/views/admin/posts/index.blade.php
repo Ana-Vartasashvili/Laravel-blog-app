@@ -31,7 +31,6 @@
                                     </tr>
                                 @endforeach
 
-                                <!-- More people... -->
                                 </tbody>
                             </table>
                         </div>
